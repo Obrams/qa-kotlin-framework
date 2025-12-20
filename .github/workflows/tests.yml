@@ -121,11 +121,6 @@ jobs:
         run: chmod +x gradlew
 
       - name: 🎭 Install Playwright Browsers
-        run: ./gradlew playwright --args="install ${{ matrix.browser }} --with-deps"
-        continue-on-error: true
-
-      - name: 🎭 Alternative Playwright Install
-        if: failure()
         run: |
           npx playwright install ${{ matrix.browser }} --with-deps
 
@@ -242,11 +237,12 @@ jobs:
 
       - name: 📥 Get Allure History
         uses: actions/checkout@v4
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') && github.event_name == 'push'
         continue-on-error: true
         with:
           ref: gh-pages
           path: gh-pages-history
+          fetch-depth: 1
 
       - name: 📁 Prepare History
         run: |
@@ -263,11 +259,13 @@ jobs:
 
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') && github.event_name == 'push'
+        continue-on-error: true
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-report
+          force_orphan: true
 
       - name: 💬 Add Report Link to PR
         if: github.event_name == 'pull_request'
