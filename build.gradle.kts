@@ -72,6 +72,36 @@ tasks.withType<Test> {
     }
 }
 
+// UI Tests task - runs tests tagged with @Tag("ui")
+tasks.register<Test>("uiTest") {
+    description = "Runs UI tests"
+    group = "verification"
+    useJUnitPlatform {
+        includeTags("ui")
+    }
+    systemProperty("junit.jupiter.execution.parallel.enabled", "true")
+    systemProperty("junit.jupiter.execution.parallel.mode.default", "concurrent")
+    testLogging {
+        events("passed", "skipped", "failed")
+        showStandardStreams = true
+    }
+}
+
+// API Tests task - runs tests tagged with @Tag("api")
+tasks.register<Test>("apiTest") {
+    description = "Runs API tests"
+    group = "verification"
+    useJUnitPlatform {
+        includeTags("api")
+    }
+    systemProperty("junit.jupiter.execution.parallel.enabled", "true")
+    systemProperty("junit.jupiter.execution.parallel.mode.default", "concurrent")
+    testLogging {
+        events("passed", "skipped", "failed")
+        showStandardStreams = true
+    }
+}
+
 allure {
     adapter {
         autoconfigure.set(true)

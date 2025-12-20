@@ -73,7 +73,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: 🧪 Run API Tests
-        run: ./gradlew test --tests "*Api*" --tests "*api*"
+        run: ./gradlew apiTest
         continue-on-error: true
 
       - name: 📊 Upload Allure Results
@@ -125,7 +125,7 @@ jobs:
           npx playwright install ${{ matrix.browser }} --with-deps
 
       - name: 🧪 Run UI Tests
-        run: ./gradlew test --tests "*ui*" --tests "*Ui*" --tests "*UI*"
+        run: ./gradlew uiTest
         env:
           BROWSER: ${{ matrix.browser }}
         continue-on-error: true
