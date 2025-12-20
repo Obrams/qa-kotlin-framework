@@ -75,3 +75,4 @@ CMD ["test", "allureReport"]
 #   docker run --rm -it -v $(pwd)/build:/app/build --entrypoint /bin/bash qa-kotlin-framework
 
 
+
