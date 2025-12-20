@@ -1,0 +1,127 @@
+# ========================================
+# Docker Compose для локального запуска
+# ========================================
+version: '3.9'
+
+services:
+  # ============================================
+  # Тесты в контейнере
+  # ============================================
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: qa-tests
+    environment:
+      - CI=true
+      - PETSTORE_URL=https://petstore.swagger.io/v2
+    volumes:
+      # Монтируем директорию сборки для получения результатов
+      - ./build:/app/build
+      # Монтируем исходники для hot-reload (опционально)
+      # - ./src:/app/src:ro
+    command: ["test", "allureReport"]
+    networks:
+      - test-network
+
+  # ============================================
+  # API тесты
+  # ============================================
+  api-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: qa-api-tests
+    environment:
+      - CI=true
+      - PETSTORE_URL=https://petstore.swagger.io/v2
+    volumes:
+      - ./build:/app/build
+    command: ["test", "--tests", "*Api*", "allureReport"]
+    networks:
+      - test-network
+
+  # ============================================
+  # UI тесты
+  # ============================================
+  ui-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: qa-ui-tests
+    environment:
+      - CI=true
+      - BROWSER=chromium
+    volumes:
+      - ./build:/app/build
+    command: ["test", "--tests", "*ui*", "allureReport"]
+    # Для отладки UI тестов с VNC:
+    # ports:
+    #   - "5900:5900"
+    networks:
+      - test-network
+
+  # ============================================
+  # Allure сервер для просмотра отчётов
+  # ============================================
+  allure:
+    image: frankescobar/allure-docker-service:2.27.0
+    container_name: allure-server
+    environment:
+      CHECK_RESULTS_EVERY_SECONDS: 5
+      KEEP_HISTORY: "TRUE"
+      KEEP_HISTORY_LATEST: 25
+    ports:
+      - "5050:5050"
+    volumes:
+      - ./build/allure-results:/app/allure-results
+      - ./allure-reports:/app/default-reports
+    networks:
+      - test-network
+
+  # ============================================
+  # Allure UI для просмотра отчётов
+  # ============================================
+  allure-ui:
+    image: frankescobar/allure-docker-service-ui:7.0.3
+    container_name: allure-ui
+    environment:
+      ALLURE_DOCKER_PUBLIC_API_URL: "http://localhost:5050"
+      ALLURE_DOCKER_PUBLIC_API_URL_PREFIX: ""
+    ports:
+      - "5252:5252"
+    depends_on:
+      - allure
+    networks:
+      - test-network
+
+networks:
+  test-network:
+    driver: bridge
+
+# ========================================
+# Примеры использования:
+# ========================================
+#
+# Запуск всех тестов:
+#   docker-compose up tests
+#
+# Запуск только API тестов:
+#   docker-compose up api-tests
+#
+# Запуск только UI тестов:
+#   docker-compose up ui-tests
+#
+# Запуск Allure сервера:
+#   docker-compose up -d allure allure-ui
+#   Откройте http://localhost:5252
+#
+# Запуск тестов + Allure:
+#   docker-compose up tests allure allure-ui
+#
+# Пересборка образа:
+#   docker-compose build --no-cache tests
+#
+# Очистка:
+#   docker-compose down -v
+
