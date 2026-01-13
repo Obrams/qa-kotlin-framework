@@ -22,9 +22,6 @@ import reactor.util.retry.Retry
 import java.time.Duration
 import java.util.UUID
 
-/**
- * HTTP API client with retry support and metrics collection.
- */
 class ApiClient(
     @PublishedApi internal val baseUrl: String,
     @PublishedApi internal val reportCollector: ThreadSafeReportCollector = ThreadSafeReportCollector(),
@@ -42,7 +39,6 @@ class ApiClient(
             .exchangeStrategies(
                 ExchangeStrategies.builder()
                     .codecs { configurer ->
-                        // Настраиваем кодеки для корректной работы со строками
                         configurer.defaultCodecs().maxInMemorySize(16 * 1024 * 1024)
                     }
                     .build(),
@@ -78,7 +74,6 @@ class ApiClient(
         body: T,
         headers: Map<String, String> = emptyMap(),
     ): ApiResponse<R> {
-        // Сериализуем тело здесь, где у нас есть reified тип T
         val bodyJson = json.encodeToString(body)
         return executeWithBody(
             method = HttpMethod.POST,
@@ -93,7 +88,6 @@ class ApiClient(
         body: T,
         headers: Map<String, String> = emptyMap(),
     ): ApiResponse<R> {
-        // Сериализуем тело здесь, где у нас есть reified тип T
         val bodyJson = json.encodeToString(body)
         return executeWithBody(
             method = HttpMethod.PUT,
@@ -130,7 +124,6 @@ class ApiClient(
         headers: Map<String, String>,
         body: Any?,
     ): ApiResponse<T> {
-        // Для обратной совместимости с методами без тела
         return executeWithBody(method, path, headers, null)
     }
 
@@ -215,7 +208,6 @@ class ApiClient(
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
 
-        // Используем кастомный BodyInserter чтобы отправить JSON-строку без повторной сериализации
         val requestSpec =
             if (bodyJson != null) {
                 spec.body(rawJsonBodyInserter(bodyJson))
@@ -289,9 +281,6 @@ class ApiClient(
         return status.value() in RETRYABLE_STATUS_CODES
     }
 
-    /**
-     * Создаёт BodyInserter для отправки сырой JSON строки без повторной сериализации Jackson.
-     */
     @PublishedApi
     internal fun rawJsonBodyInserter(jsonString: String): BodyInserter<DataBuffer, ReactiveHttpOutputMessage> {
         return BodyInserter { outputMessage, _ ->

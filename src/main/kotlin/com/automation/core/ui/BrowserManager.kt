@@ -11,10 +11,6 @@ import java.nio.file.Paths
 
 private val logger = KotlinLogging.logger {}
 
-/**
- * Manages browser lifecycle for UI tests.
- * Thread-safe singleton for browser instance management.
- */
 object BrowserManager {
     @Volatile
     private var playwright: Playwright? = null

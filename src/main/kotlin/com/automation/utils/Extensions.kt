@@ -5,9 +5,6 @@ import mu.KotlinLogging
 
 private val logger = KotlinLogging.logger {}
 
-/**
- * Retries a suspending block with exponential backoff.
- */
 suspend fun <T> retryWithBackoff(
     maxRetries: Int = 3,
     initialDelayMs: Long = 100,
@@ -28,9 +25,6 @@ suspend fun <T> retryWithBackoff(
     return block()
 }
 
-/**
- * Retries a blocking block with fixed delay.
- */
 fun <T> retryBlocking(
     maxRetries: Int = 3,
     delayMs: Long = 500,
@@ -47,9 +41,6 @@ fun <T> retryBlocking(
     return block()
 }
 
-/**
- * Measures execution time and returns result with duration.
- */
 inline fun <T> measureTimeMillis(block: () -> T): Pair<T, Long> {
     val start = System.currentTimeMillis()
     val result = block()
@@ -76,9 +67,6 @@ fun waitUntil(
     throw IllegalStateException("$message after ${timeoutMs}ms")
 }
 
-/**
- * Executes a block safely, returning null on exception.
- */
 fun <T> safeExecute(block: () -> T): T? {
     return try {
         block()
@@ -88,9 +76,6 @@ fun <T> safeExecute(block: () -> T): T? {
     }
 }
 
-/**
- * Gets value from Result or logs error and returns default.
- */
 fun <T> Result<T>.getOrLog(
     default: T,
     logMessage: String = "Operation failed",

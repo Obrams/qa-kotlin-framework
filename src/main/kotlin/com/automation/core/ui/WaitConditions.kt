@@ -8,9 +8,6 @@ import mu.KotlinLogging
 
 private val logger = KotlinLogging.logger {}
 
-/**
- * Wait conditions for Playwright.
- */
 object WaitConditions {
     private const val DEFAULT_TIMEOUT_MS = 10000.0
 

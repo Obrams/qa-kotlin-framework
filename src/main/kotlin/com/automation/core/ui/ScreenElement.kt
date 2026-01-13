@@ -6,9 +6,6 @@ import mu.KotlinLogging
 
 private val logger = KotlinLogging.logger {}
 
-/**
- * Wrapper over Playwright Locator.
- */
 class ScreenElement(
     private val locator: Locator,
     private val name: String = "element",

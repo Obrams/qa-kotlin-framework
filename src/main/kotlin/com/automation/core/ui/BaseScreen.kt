@@ -7,9 +7,6 @@ import mu.KotlinLogging
 
 private val logger = KotlinLogging.logger {}
 
-/**
- * Base class for Page Objects.
- */
 abstract class BaseScreen(
     protected val page: Page,
 ) {
@@ -140,12 +137,7 @@ abstract class BaseScreen(
     }
 
     /**
-     * Handles alert dialogs.
      * Must be called BEFORE the action that triggers the alert.
-     *
-     * @param accept true to accept the alert, false to dismiss
-     * @param action the action that triggers the alert
-     * @return the alert message text
      */
     fun handleAlert(
         accept: Boolean = true,
@@ -165,7 +157,6 @@ abstract class BaseScreen(
     }
 
     /**
-     * Accepts an alert dialog.
      * Must be called BEFORE the action that triggers the alert.
      */
     fun acceptAlert(action: () -> Unit): String {
@@ -173,19 +164,12 @@ abstract class BaseScreen(
     }
 
     /**
-     * Dismisses an alert dialog.
      * Must be called BEFORE the action that triggers the alert.
      */
     fun dismissAlert(action: () -> Unit): String {
         return handleAlert(accept = false, action = action)
     }
 
-    /**
-     * Switches to a frame and executes actions within it.
-     *
-     * @param frameSelector CSS selector for the frame
-     * @param action actions to perform within the frame
-     */
     fun <T> withinFrame(
         frameSelector: String,
         action: (frameLocator: com.microsoft.playwright.FrameLocator) -> T,
@@ -195,9 +179,6 @@ abstract class BaseScreen(
         return action(frameLocator)
     }
 
-    /**
-     * Gets a ScreenElement within a specific frame.
-     */
     fun frameElement(
         frameSelector: String,
         elementSelector: String,

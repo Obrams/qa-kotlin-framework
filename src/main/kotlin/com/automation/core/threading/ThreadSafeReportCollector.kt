@@ -13,9 +13,6 @@ import kotlin.concurrent.write
 
 private val logger = KotlinLogging.logger {}
 
-/**
- * Thread-safe collector for API request metrics.
- */
 class ThreadSafeReportCollector {
     private val metrics = mutableListOf<RequestMetric>()
     private val errors = mutableListOf<ErrorRecord>()

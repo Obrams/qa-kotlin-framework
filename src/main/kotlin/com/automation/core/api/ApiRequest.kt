@@ -2,9 +2,6 @@ package com.automation.core.api
 
 import org.springframework.http.HttpMethod
 
-/**
- * DSL builder for API requests.
- */
 class ApiRequestBuilder {
     var method: HttpMethod = HttpMethod.GET
     var path: String = ""
@@ -57,9 +54,6 @@ data class ApiRequestConfig(
     val headers: Map<String, String>,
     val queryParams: Map<String, String>,
 ) {
-    /**
-     * Returns full path with query parameters.
-     */
     fun getFullPath(): String = UrlBuilder.buildPath(path, queryParams)
 }
 

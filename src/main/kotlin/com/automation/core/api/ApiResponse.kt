@@ -1,8 +1,5 @@
 package com.automation.core.api
 
-/**
- * API response wrapper using sealed class for type-safe response handling.
- */
 sealed class ApiResponse<out T> {
     data class Success<T>(
         val data: T,
@@ -56,9 +53,6 @@ sealed class ApiResponse<out T> {
     }
 }
 
-/**
- * Exception thrown when API call fails.
- */
 class ApiException(
     message: String,
     val statusCode: Int? = null,

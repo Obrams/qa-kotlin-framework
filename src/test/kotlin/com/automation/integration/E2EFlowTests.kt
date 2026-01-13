@@ -59,7 +59,6 @@ class E2EFlowTests {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("E2E: Create and retrieve pet via API")
     fun testApiCreateAndRetrievePet() {
-        // Создаём питомца
         val pet =
             TestDataFactory.createPet(
                 name = "E2ETestPet_${System.currentTimeMillis()}",
@@ -68,7 +67,6 @@ class E2EFlowTests {
 
         val createResponse = apiClient.post<Pet, Pet>("/pet", pet)
 
-        // Проверяем успешное создание
         assertThat(createResponse).isInstanceOf(ApiResponse.Success::class.java)
         val createdPet = (createResponse as ApiResponse.Success).data
         assertThat(createdPet.id).isNotNull()
@@ -79,14 +77,12 @@ class E2EFlowTests {
         Allure.parameter("Pet ID", createdPet.id.toString())
         Allure.parameter("Pet Name", createdPet.name ?: "")
 
-        // Получаем питомца по ID
         val petId = createdPet.id!!
         val getResponse = apiClient.get<Pet>("/pet/$petId")
 
         assertThat(getResponse).isInstanceOf(ApiResponse.Success::class.java)
         val retrievedPet = (getResponse as ApiResponse.Success).data
         assertThat(retrievedPet.id).isEqualTo(petId)
-        // Имя/статус могут измениться при параллельном выполнении на публичном API
         assertThat(retrievedPet.name).isNotBlank()
 
         logger.info { "Successfully created and retrieved pet: ${retrievedPet.name}" }

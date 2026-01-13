@@ -6,9 +6,6 @@ import java.util.UUID
 
 private val logger = KotlinLogging.logger {}
 
-/**
- * ThreadLocal-based test context for thread-safe test data isolation.
- */
 object TestContext {
     private val threadLocalContext = ThreadLocal<TestData>()
 

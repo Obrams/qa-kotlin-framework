@@ -8,13 +8,7 @@ import java.util.UUID
 
 private val logger = KotlinLogging.logger {}
 
-/**
- * Allure reporting extensions and utilities.
- */
 object AllureExtensions {
-    /**
-     * Creates an Allure step with automatic status handling.
-     */
     fun <T> step(
         name: String,
         action: () -> T,
@@ -37,9 +31,6 @@ object AllureExtensions {
         }
     }
 
-    /**
-     * Adds text attachment to Allure report.
-     */
     fun attachText(
         name: String,
         content: String,
@@ -48,9 +39,6 @@ object AllureExtensions {
         logger.trace { "Attached text: $name" }
     }
 
-    /**
-     * Adds JSON attachment to Allure report.
-     */
     fun attachJson(
         name: String,
         content: String,
@@ -59,9 +47,6 @@ object AllureExtensions {
         logger.trace { "Attached JSON: $name" }
     }
 
-    /**
-     * Adds HTML attachment to Allure report.
-     */
     fun attachHtml(
         name: String,
         content: String,
@@ -70,9 +55,6 @@ object AllureExtensions {
         logger.trace { "Attached HTML: $name" }
     }
 
-    /**
-     * Adds screenshot attachment.
-     */
     fun attachScreenshot(
         name: String,
         screenshot: ByteArray,
@@ -81,9 +63,6 @@ object AllureExtensions {
         logger.trace { "Attached screenshot: $name" }
     }
 
-    /**
-     * Adds video attachment.
-     */
     fun attachVideo(
         name: String,
         video: ByteArray,
@@ -92,9 +71,6 @@ object AllureExtensions {
         logger.trace { "Attached video: $name" }
     }
 
-    /**
-     * Adds a link to the report.
-     */
     fun addLink(
         name: String,
         url: String,
@@ -103,37 +79,22 @@ object AllureExtensions {
         Allure.link(name, type, url)
     }
 
-    /**
-     * Adds issue link.
-     */
     fun addIssue(issueId: String) {
         Allure.issue(issueId, issueId)
     }
 
-    /**
-     * Adds TMS link.
-     */
     fun addTestCase(testCaseId: String) {
         Allure.tms(testCaseId, testCaseId)
     }
 
-    /**
-     * Sets test description.
-     */
     fun setDescription(description: String) {
         Allure.description(description)
     }
 
-    /**
-     * Sets test description in HTML format.
-     */
     fun setDescriptionHtml(html: String) {
         Allure.descriptionHtml(html)
     }
 
-    /**
-     * Adds environment info to report.
-     */
     fun addParameter(
         name: String,
         value: String,
@@ -141,17 +102,11 @@ object AllureExtensions {
         Allure.parameter(name, value)
     }
 
-    /**
-     * Adds multiple parameters.
-     */
     fun addParameters(vararg params: Pair<String, String>) {
         params.forEach { (name, value) -> Allure.parameter(name, value) }
     }
 }
 
-/**
- * Extension function for executing block as Allure step.
- */
 fun <T> allureStep(
     name: String,
     block: () -> T,
@@ -159,9 +114,6 @@ fun <T> allureStep(
     return AllureExtensions.step(name, block)
 }
 
-/**
- * Extension function for attaching data on failure.
- */
 fun <T> withScreenshotOnFailure(
     screenshotProvider: () -> ByteArray,
     block: () -> T,

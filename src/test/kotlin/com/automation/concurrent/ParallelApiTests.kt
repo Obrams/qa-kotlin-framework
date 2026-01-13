@@ -87,15 +87,11 @@ class ParallelApiTests {
             val metrics = reportCollector.getMetrics()
             val stats = reportCollector.getStatistics()
 
-            // Проверяем, что все запросы обработаны
             assertThat(results).hasSize(requestCount)
             assertThat(successCount.get() + errorCount.get()).isEqualTo(requestCount)
 
-            // Проверяем, что хотя бы часть запросов были успешными
             assertThat(successCount.get()).isGreaterThan(0)
 
-            // Метрики могут быть пустыми в многопоточном окружении
-            // Просто логируем для диагностики
             logger.info { "Metrics collected: ${metrics.size}, Stats: total=${stats.totalRequests}" }
 
             reportCollector.generateAllureAttachments()
@@ -159,10 +155,8 @@ class ParallelApiTests {
             val totalProcessed = successfulRequests.get() + failedRequests.get()
             assertThat(totalProcessed).isEqualTo(burstSize)
 
-            // API может не справляться с нагрузкой, просто проверяем, что все запросы обработаны
             val successRate = successfulRequests.get().toDouble() / burstSize * 100
-            // Снижаем порог, т.к. внешний API может возвращать ошибки при высокой нагрузке
-            assertThat(successRate).isGreaterThanOrEqualTo(0.0) // Проверяем только, что тест не упал
+            assertThat(successRate).isGreaterThanOrEqualTo(0.0)
 
             reportCollector.generateAllureAttachments()
 

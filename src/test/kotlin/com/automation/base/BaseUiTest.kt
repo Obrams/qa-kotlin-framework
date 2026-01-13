@@ -16,9 +16,6 @@ import org.junit.jupiter.api.TestInfo
 
 private val logger = KotlinLogging.logger {}
 
-/**
- * Base class for UI tests.
- */
 abstract class BaseUiTest {
     protected lateinit var page: Page
     protected lateinit var context: BrowserContext

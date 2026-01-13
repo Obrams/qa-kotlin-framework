@@ -36,21 +36,17 @@ class UserApiTests : BaseApiTest() {
         val user = TestDataFactory.createUser()
         val createResponse = apiClient.post<User, User>("/user", user)
 
-        // Проверяем, что создание прошло успешно
         assertThat(createResponse.isSuccess).isTrue()
 
         val response = apiClient.get<User>("/user/${user.username}")
 
-        // Если пользователь создан успешно, проверяем данные
-        // На публичном API возможны race conditions при параллельных запросах
         if (response is ApiResponse.Success) {
             val retrievedUser = response.data
             assertThat(retrievedUser.username).isEqualTo(user.username)
         } else {
-            // Если 404, это может быть из-за задержки на стороне API
             assertThat(response).isInstanceOf(ApiResponse.HttpError::class.java)
             val error = response as ApiResponse.HttpError
-            assertThat(error.statusCode).isIn(200, 404) // Допускаем 404 на публичном API
+            assertThat(error.statusCode).isIn(200, 404)
         }
     }
 

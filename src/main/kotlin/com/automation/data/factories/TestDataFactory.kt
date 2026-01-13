@@ -12,9 +12,6 @@ import java.time.format.DateTimeFormatter
 import java.util.UUID
 import kotlin.random.Random
 
-/**
- * Factory for generating test data.
- */
 object TestDataFactory {
     private val random = Random(System.currentTimeMillis())
 

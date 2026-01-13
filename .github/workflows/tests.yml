@@ -146,6 +146,24 @@ jobs:
           path: build/test-results
           retention-days: 7
 
+      - name: 🎬 Upload Playwright Videos
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-videos-${{ matrix.browser }}
+          path: build/videos
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: 📸 Upload Playwright Screenshots
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-screenshots-${{ matrix.browser }}
+          path: build/screenshots
+          retention-days: 7
+          if-no-files-found: ignore
+
   # ============================================
   # Полный прогон тестов (ручной запуск)
   # ============================================
@@ -221,6 +239,22 @@ jobs:
           merge-multiple: true
         continue-on-error: true
 
+      - name: 📥 Download Playwright Videos
+        uses: actions/download-artifact@v4
+        with:
+          pattern: playwright-videos-*
+          path: playwright-videos
+          merge-multiple: true
+        continue-on-error: true
+
+      - name: 📥 Download Playwright Screenshots
+        uses: actions/download-artifact@v4
+        with:
+          pattern: playwright-screenshots-*
+          path: playwright-screenshots
+          merge-multiple: true
+        continue-on-error: true
+
       - name: 📁 Merge Results
         run: |
           mkdir -p allure-results-merged
@@ -257,6 +291,23 @@ jobs:
           allure generate allure-results-merged -o allure-report --clean
           ls -la allure-report/
 
+      - name: 📦 Upload Allure Report Artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-report
+          path: allure-report
+          retention-days: 30
+
+      - name: 📚 Upload Allure History Artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-history
+          path: allure-report/history
+          retention-days: 90
+          if-no-files-found: ignore
+
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') && github.event_name == 'push'
@@ -266,6 +317,24 @@ jobs:
           publish_branch: gh-pages
           publish_dir: allure-report
           force_orphan: true
+
+      - name: 📦 Upload Playwright Videos Artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-videos-all
+          path: playwright-videos
+          retention-days: 30
+          if-no-files-found: ignore
+
+      - name: 📸 Upload Playwright Screenshots Artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-screenshots-all
+          path: playwright-screenshots
+          retention-days: 30
+          if-no-files-found: ignore
 
       - name: 💬 Add Report Link to PR
         if: github.event_name == 'pull_request'

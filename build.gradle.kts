@@ -22,34 +22,27 @@ val kotlinxSerializationVersion = "1.6.2"
 val kotlinxCoroutinesVersion = "1.7.3"
 
 dependencies {
-    // Kotlin
     implementation(kotlin("stdlib"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:$kotlinxCoroutinesVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinxSerializationVersion")
 
-    // Spring WebClient
     implementation("org.springframework:spring-webflux:$springVersion")
     implementation("org.springframework:spring-context:$springVersion")
     implementation("io.projectreactor.netty:reactor-netty-http:1.1.14")
 
-    // Playwright
     implementation("com.microsoft.playwright:playwright:$playwrightVersion")
 
-    // Logging
     implementation("ch.qos.logback:logback-classic:1.4.14")
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
 
-    // JUnit 5
     testImplementation(platform("org.junit:junit-bom:$junitVersion"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("org.junit.jupiter:junit-jupiter-params")
 
-    // Allure
     implementation("io.qameta.allure:allure-java-commons:$allureVersion")
     testImplementation("io.qameta.allure:allure-junit5:$allureVersion")
 
-    // Assertions
     testImplementation("org.assertj:assertj-core:3.24.2")
 }
 
@@ -72,7 +65,6 @@ tasks.withType<Test> {
     }
 }
 
-// UI Tests task - runs tests tagged with @Tag("ui")
 tasks.register<Test>("uiTest") {
     description = "Runs UI tests"
     group = "verification"
@@ -87,7 +79,6 @@ tasks.register<Test>("uiTest") {
     }
 }
 
-// API Tests task - runs tests tagged with @Tag("api")
 tasks.register<Test>("apiTest") {
     description = "Runs API tests"
     group = "verification"
@@ -105,7 +96,7 @@ tasks.register<Test>("apiTest") {
 allure {
     adapter {
         autoconfigure.set(true)
-        aspectjWeaver.set(false) // Отключено для совместимости с Java 24
+        aspectjWeaver.set(false)
     }
 }
 

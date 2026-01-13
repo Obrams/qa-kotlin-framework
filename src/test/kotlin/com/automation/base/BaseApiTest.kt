@@ -12,9 +12,6 @@ import org.junit.jupiter.api.TestInfo
 
 private val logger = KotlinLogging.logger {}
 
-/**
- * Base class for API tests.
- */
 abstract class BaseApiTest {
     protected lateinit var apiClient: ApiClient
     protected lateinit var reportCollector: ThreadSafeReportCollector
