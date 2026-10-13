@@ -109,59 +109,59 @@ junit.jupiter.execution.parallel.mode.default=concurrent
 
 ## Docker
 
-### Сборка образа
+### Build the image
 
 ```bash
 docker build -t qa-kotlin-framework .
 ```
 
-### Запуск тестов
+### Run tests
 
 ```bash
-# Все тесты
+# All tests
 docker run --rm -v $(pwd)/build:/app/build qa-kotlin-framework
 
-# API тесты
+# API tests
 docker run --rm -v $(pwd)/build:/app/build qa-kotlin-framework test --tests "*Api*"
 
-# UI тесты
+# UI tests
 docker run --rm -v $(pwd)/build:/app/build qa-kotlin-framework test --tests "*ui*"
 ```
 
 ### Docker Compose
 
 ```bash
-# Запуск тестов
+# Run tests
 docker-compose up tests
 
-# Запуск Allure сервера (http://localhost:5252)
+# Start Allure server (http://localhost:5252)
 docker-compose up -d allure allure-ui
 
-# Всё вместе
+# Everything together
 docker-compose up tests allure allure-ui
 ```
 
 ## CI/CD
 
-Проект использует **GitHub Actions** для автоматизации:
+The project uses **GitHub Actions** for automation:
 
-| Workflow | Описание |
+| Workflow | Description |
 |----------|----------|
-| `lint` | Проверка кода с ktlint |
-| `api-tests` | Запуск API тестов |
-| `ui-tests` | Запуск UI тестов (matrix: chromium) |
-| `allure-report` | Генерация и публикация отчёта |
-| `docker-build` | Сборка Docker образа |
+| `lint` | Code linting with ktlint |
+| `api-tests` | Run API tests |
+| `ui-tests` | Run UI tests (matrix: chromium) |
+| `allure-report` | Generate and publish the report |
+| `docker-build` | Build the Docker image |
 
-### Ручной запуск
+### Manual run
 
-Можно запустить тесты вручную через **Actions → Run workflow** с параметрами:
-- `test_filter` — фильтр тестов (например, `*Api*`)
-- `browser` — браузер для UI тестов
+Tests can be run manually via **Actions → Run workflow** with parameters:
+- `test_filter` — test filter (e.g. `*Api*`)
+- `browser` — browser for UI tests
 
 ### Allure Report
 
-Отчёты публикуются на **GitHub Pages** после merge в main/master:
+Reports are published to **GitHub Pages** after merge into main/master:
 ```
 https://<username>.github.io/<repo-name>/
 ```
