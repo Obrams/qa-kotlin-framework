@@ -9,6 +9,7 @@ class CartPage(page: Page) : BaseScreen(page) {
     override val expectedUrlPattern = "cart.html"
 
     private val title = css(".title", "Page title")
+    private val cartList = css(".cart_list", "Cart list")
     private val cartItems = css(".cart_item", "Cart items")
     private val continueShoppingButton = css("#continue-shopping", "Continue shopping button")
     private val checkoutButton = css("#checkout", "Checkout button")
@@ -23,10 +24,12 @@ class CartPage(page: Page) : BaseScreen(page) {
     }
 
     fun getCartItemCount(): Int {
+        waitUntilLoaded()
         return cartItems.count()
     }
 
     fun getCartItemNames(): List<String> {
+        waitUntilLoaded()
         return cartItems.all().map { item ->
             item.getLocator().locator(".inventory_item_name").textContent() ?: ""
         }
@@ -56,7 +59,13 @@ class CartPage(page: Page) : BaseScreen(page) {
     }
 
     fun isCartEmpty(): Boolean {
+        waitUntilLoaded()
         return cartItems.count() == 0
+    }
+
+    // the cart is client-side rendered and count() does not wait; .cart_list exists even for an empty cart
+    private fun waitUntilLoaded() {
+        cartList.waitForVisible()
     }
 
     fun getItemPrice(itemName: String): String {
