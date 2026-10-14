@@ -48,7 +48,8 @@ class LoginPage(page: Page) : BaseScreen(page) {
         enterUsername(username)
         enterPassword(password)
         clickLogin()
-        return InventoryPage(page)
+        // wait for the redirect so callers get a page that is actually loaded
+        return InventoryPage(page).apply { verifyUrl() }
     }
 
     @Step("Login with invalid credentials expecting error")
