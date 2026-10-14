@@ -87,12 +87,13 @@ tasks.register<Test>("uiTest") {
     }
 }
 
-// API Tests task - runs tests tagged with @Tag("api")
+// API Tests task - API, end-to-end and concurrency tests (everything except UI)
 tasks.register<Test>("apiTest") {
     description = "Runs API tests"
     group = "verification"
     useJUnitPlatform {
-        includeTags("api")
+        includeTags("api", "e2e", "concurrent")
+        excludeTags("ui")
     }
     systemProperty("junit.jupiter.execution.parallel.enabled", "true")
     systemProperty("junit.jupiter.execution.parallel.mode.default", "concurrent")
