@@ -21,7 +21,8 @@ class InventoryPage(page: Page) : BaseScreen(page) {
     }
 
     override fun isDisplayed(): Boolean {
-        return title.isVisible() && getCurrentUrl().contains("inventory")
+        // the page is a React app: the URL changes before the header renders, so wait for it
+        return getCurrentUrl().contains("inventory") && runCatching { title.waitForVisible() }.isSuccess
     }
 
     fun getProductCount(): Int {
