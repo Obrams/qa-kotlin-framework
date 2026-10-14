@@ -1,0 +1,21 @@
+[
+    {
+        "requestId": "08f6637d-f699-4198-bf81-be3daa3b3f70",
+        "method": "POST",
+        "path": "/user",
+        "statusCode": 200,
+        "duration": 1761,
+        "threadName": "ForkJoinPool-1-worker-4",
+        "timestamp": 1792013568564,
+        "requestBody": "{\"id\":null,\"username\":\"user_09e4f782\",\"firstName\":\"Emily\",\"lastName\":\"Davis\",\"email\":\"user_e52707fd@test.com\",\"password\":\"Pass9078!\",\"phone\":\"+11409485867\",\"userStatus\":1}"
+    },
+    {
+        "requestId": "1ae5a7bd-6299-462f-9931-d62dc3eccf1e",
+        "method": "GET",
+        "path": "/user/login?username=user_09e4f782&password=Pass9078!",
+        "statusCode": 200,
+        "duration": 142,
+        "threadName": "ForkJoinPool-1-worker-4",
+        "timestamp": 1792013568718
+    }
+]

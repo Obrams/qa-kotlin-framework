@@ -1,0 +1,5 @@
+Total Requests: 10
+Successful: 10
+Errors: 0
+Unique Threads: 10
+Avg Duration: 1741ms

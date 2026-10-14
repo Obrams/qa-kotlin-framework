@@ -1,0 +1,21 @@
+[
+    {
+        "requestId": "f1350284-f7ff-4c9c-9683-9ff41c63b323",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 79,
+        "threadName": "ForkJoinPool-1-worker-1",
+        "timestamp": 1792013568846,
+        "requestBody": "{\"id\":null,\"name\":\"TestPet_1792013568766\",\"category\":{\"id\":53,\"name\":\"Dogs\"},\"photoUrls\":[\"https://example.com/pet42.jpg\"],\"tags\":[{\"id\":94,\"name\":\"active\"},{\"id\":71,\"name\":\"active\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "ae045074-dba5-4487-8325-127bdda40281",
+        "method": "GET",
+        "path": "/pet/9223372036854775807",
+        "statusCode": 200,
+        "duration": 18,
+        "threadName": "ForkJoinPool-1-worker-1",
+        "timestamp": 1792013568865
+    }
+]

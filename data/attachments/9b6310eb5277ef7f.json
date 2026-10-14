@@ -1,0 +1,12 @@
+[
+    {
+        "requestId": "307f0753-8892-4476-9176-ae500c8a3ee6",
+        "method": "POST",
+        "path": "/user",
+        "statusCode": 200,
+        "duration": 45,
+        "threadName": "ForkJoinPool-1-worker-4",
+        "timestamp": 1792013568815,
+        "requestBody": "{\"id\":null,\"username\":\"user_140cc7b9\",\"firstName\":\"Robert\",\"lastName\":\"Garcia\",\"email\":\"user_2a90ba18@test.com\",\"password\":\"Pass3512!\",\"phone\":\"+19076980377\",\"userStatus\":1}"
+    }
+]

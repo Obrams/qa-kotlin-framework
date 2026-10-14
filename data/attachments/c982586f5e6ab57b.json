@@ -1,0 +1,11 @@
+[
+    {
+        "requestId": "77934bf3-04f8-4dce-8ecd-7a210d005ae5",
+        "method": "GET",
+        "path": "/store/inventory",
+        "statusCode": 200,
+        "duration": 1771,
+        "threadName": "ForkJoinPool-1-worker-6",
+        "timestamp": 1792013568699
+    }
+]

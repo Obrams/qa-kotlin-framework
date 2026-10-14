@@ -1,0 +1,12 @@
+[
+    {
+        "requestId": "8f2483d0-e5a0-41c4-90dc-97b300df0f74",
+        "method": "GET",
+        "path": "/pet/999999999999",
+        "statusCode": 404,
+        "duration": 29,
+        "threadName": "ForkJoinPool-1-worker-2",
+        "timestamp": 1792013568796,
+        "responseBody": "{\"code\":1,\"type\":\"error\",\"message\":\"Pet not found\"}"
+    }
+]

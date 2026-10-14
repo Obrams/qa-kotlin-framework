@@ -1,0 +1,21 @@
+[
+    {
+        "requestId": "2d82f88a-9784-4387-9f4a-88868d12955d",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 1698,
+        "threadName": "ForkJoinPool-1-worker-1",
+        "timestamp": 1792013568521,
+        "requestBody": "{\"id\":null,\"name\":\"E2ETestPet_1792013566795\",\"category\":{\"id\":47,\"name\":\"Dogs\"},\"photoUrls\":[\"https://example.com/pet59.jpg\"],\"tags\":[{\"id\":53,\"name\":\"playful\"},{\"id\":41,\"name\":\"indoor\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "e3a47aa4-c39f-423f-ab7a-12c3b04b991c",
+        "method": "GET",
+        "path": "/pet/9223372036854775807",
+        "statusCode": 200,
+        "duration": 170,
+        "threadName": "ForkJoinPool-1-worker-1",
+        "timestamp": 1792013568700
+    }
+]

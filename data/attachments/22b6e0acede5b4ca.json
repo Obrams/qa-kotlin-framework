@@ -1,0 +1,16 @@
+{
+    "totalRequests": 4,
+    "totalErrors": 0,
+    "averageDuration": 517,
+    "minDuration": 65,
+    "maxDuration": 1698,
+    "statusCodeDistribution": {
+        "200": 4
+    },
+    "methodDistribution": {
+        "POST": 1,
+        "GET": 2,
+        "PUT": 1
+    },
+    "uniqueThreads": 1
+}

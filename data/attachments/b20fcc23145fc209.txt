@@ -1,0 +1,8 @@
+Burst Size: 20
+Total Time: 128ms
+Successful: 20
+Failed: 0
+Success Rate: 100%
+Requests/Second: 156.25
+Avg Duration: 56ms
+Max Duration: 98ms

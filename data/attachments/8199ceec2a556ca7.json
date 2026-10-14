@@ -1,0 +1,40 @@
+[
+    {
+        "requestId": "f2c7848a-52ae-45cc-99a0-c88e82466da8",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 1698,
+        "threadName": "ForkJoinPool-1-worker-8",
+        "timestamp": 1792013568522,
+        "requestBody": "{\"id\":null,\"name\":\"LifecycleTestPet_1792013566792\",\"category\":{\"id\":47,\"name\":\"Cats\"},\"photoUrls\":[\"https://example.com/pet94.jpg\"],\"tags\":[{\"id\":72,\"name\":\"adult\"},{\"id\":97,\"name\":\"indoor\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "8e7d8023-1bba-4de8-b4f1-48d61b1c9678",
+        "method": "PUT",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 174,
+        "threadName": "ForkJoinPool-1-worker-8",
+        "timestamp": 1792013568705,
+        "requestBody": "{\"id\":9223372036854775807,\"name\":\"UpdatedLifecyclePet\",\"category\":{\"id\":47,\"name\":\"Cats\"},\"photoUrls\":[\"https://example.com/pet94.jpg\"],\"tags\":[{\"id\":72,\"name\":\"adult\"},{\"id\":97,\"name\":\"indoor\"}],\"status\":\"sold\"}"
+    },
+    {
+        "requestId": "8a8e531a-e15d-40a0-8eb0-5418bab2de23",
+        "method": "GET",
+        "path": "/pet/9223372036854775807",
+        "statusCode": 200,
+        "duration": 133,
+        "threadName": "ForkJoinPool-1-worker-8",
+        "timestamp": 1792013568851
+    },
+    {
+        "requestId": "7ea2c098-88d2-4792-a4f5-1c6e699ec26d",
+        "method": "GET",
+        "path": "/pet/findByStatus?status=sold",
+        "statusCode": 200,
+        "duration": 65,
+        "threadName": "ForkJoinPool-1-worker-8",
+        "timestamp": 1792013568917
+    }
+]

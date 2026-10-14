@@ -1,0 +1,14 @@
+{
+    "totalRequests": 1,
+    "totalErrors": 0,
+    "averageDuration": 29,
+    "minDuration": 29,
+    "maxDuration": 29,
+    "statusCodeDistribution": {
+        "404": 1
+    },
+    "methodDistribution": {
+        "GET": 1
+    },
+    "uniqueThreads": 1
+}

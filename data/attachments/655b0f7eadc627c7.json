@@ -1,0 +1,12 @@
+[
+    {
+        "requestId": "182801ad-7a36-4e66-bbc6-56b91649f322",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 1872,
+        "threadName": "ForkJoinPool-1-worker-2",
+        "timestamp": 1792013568696,
+        "requestBody": "{\"id\":null,\"name\":\"Fluffy\",\"category\":{\"id\":97,\"name\":\"Reptiles\"},\"photoUrls\":[\"https://example.com/pet94.jpg\"],\"tags\":[{\"id\":51,\"name\":\"outdoor\"},{\"id\":24,\"name\":\"young\"}],\"status\":\"available\"}"
+    }
+]

@@ -1,0 +1,202 @@
+[
+    {
+        "requestId": "afe81aab-241c-4583-ac64-891bd895b8f4",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 37,
+        "threadName": "DefaultDispatcher-worker-13 @coroutine#22",
+        "timestamp": 1792013568938,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_10\",\"category\":{\"id\":62,\"name\":\"Hamsters\"},\"photoUrls\":[\"https://example.com/pet8.jpg\"],\"tags\":[{\"id\":63,\"name\":\"playful\"},{\"id\":51,\"name\":\"indoor\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "7ee82ad7-c851-4ce5-be40-ce5eaa483a6e",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 39,
+        "threadName": "DefaultDispatcher-worker-7 @coroutine#24",
+        "timestamp": 1792013568940,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_12\",\"category\":{\"id\":72,\"name\":\"Cats\"},\"photoUrls\":[\"https://example.com/pet10.jpg\"],\"tags\":[{\"id\":25,\"name\":\"indoor\"},{\"id\":28,\"name\":\"vaccinated\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "bd7a2bf3-7742-46b7-8157-eb90f6587f40",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 41,
+        "threadName": "DefaultDispatcher-worker-1 @coroutine#25",
+        "timestamp": 1792013568942,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_13\",\"category\":{\"id\":41,\"name\":\"Birds\"},\"photoUrls\":[\"https://example.com/pet60.jpg\"],\"tags\":[{\"id\":76,\"name\":\"calm\"},{\"id\":44,\"name\":\"trained\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "30f93dbd-cbe4-4f0f-bb93-e4d9d48eecab",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 44,
+        "threadName": "DefaultDispatcher-worker-2 @coroutine#23",
+        "timestamp": 1792013568945,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_11\",\"category\":{\"id\":54,\"name\":\"Reptiles\"},\"photoUrls\":[\"https://example.com/pet26.jpg\"],\"tags\":[{\"id\":38,\"name\":\"trained\"},{\"id\":11,\"name\":\"adult\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "091ec743-2427-49b1-9595-e20aec1b5cd7",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 46,
+        "threadName": "DefaultDispatcher-worker-5 @coroutine#19",
+        "timestamp": 1792013568945,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_7\",\"category\":{\"id\":3,\"name\":\"Reptiles\"},\"photoUrls\":[\"https://example.com/pet78.jpg\"],\"tags\":[{\"id\":34,\"name\":\"active\"},{\"id\":96,\"name\":\"young\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "56a749e9-5086-4238-94d1-827b5054e24e",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 60,
+        "threadName": "DefaultDispatcher-worker-6 @coroutine#17",
+        "timestamp": 1792013568958,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_5\",\"category\":{\"id\":66,\"name\":\"Hamsters\"},\"photoUrls\":[\"https://example.com/pet51.jpg\"],\"tags\":[{\"id\":91,\"name\":\"indoor\"},{\"id\":78,\"name\":\"outdoor\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "8ce7b949-2c55-4aa7-870b-49811fefa239",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 58,
+        "threadName": "DefaultDispatcher-worker-12 @coroutine#21",
+        "timestamp": 1792013568958,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_9\",\"category\":{\"id\":73,\"name\":\"Cats\"},\"photoUrls\":[\"https://example.com/pet85.jpg\"],\"tags\":[{\"id\":7,\"name\":\"adult\"},{\"id\":36,\"name\":\"trained\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "3b3cda64-29a4-4aa6-8050-66bbbd869552",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 45,
+        "threadName": "DefaultDispatcher-worker-9 @coroutine#16",
+        "timestamp": 1792013568961,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_4\",\"category\":{\"id\":17,\"name\":\"Hamsters\"},\"photoUrls\":[\"https://example.com/pet11.jpg\"],\"tags\":[{\"id\":52,\"name\":\"friendly\"},{\"id\":79,\"name\":\"indoor\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "6b21f94c-6c3a-4229-875a-0a376ad3e8e7",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 68,
+        "threadName": "DefaultDispatcher-worker-10 @coroutine#13",
+        "timestamp": 1792013568965,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_1\",\"category\":{\"id\":74,\"name\":\"Cats\"},\"photoUrls\":[\"https://example.com/pet97.jpg\"],\"tags\":[{\"id\":5,\"name\":\"adult\"},{\"id\":53,\"name\":\"trained\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "a19c4bd8-6393-41fd-8428-88bbf02005ab",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 50,
+        "threadName": "DefaultDispatcher-worker-3 @coroutine#14",
+        "timestamp": 1792013568966,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_2\",\"category\":{\"id\":7,\"name\":\"Dogs\"},\"photoUrls\":[\"https://example.com/pet27.jpg\"],\"tags\":[{\"id\":29,\"name\":\"friendly\"},{\"id\":38,\"name\":\"adult\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "c0244703-e4c7-4de6-9c52-01c503c3fd01",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 67,
+        "threadName": "DefaultDispatcher-worker-14 @coroutine#20",
+        "timestamp": 1792013568967,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_8\",\"category\":{\"id\":69,\"name\":\"Fish\"},\"photoUrls\":[\"https://example.com/pet38.jpg\"],\"tags\":[{\"id\":68,\"name\":\"friendly\"},{\"id\":15,\"name\":\"friendly\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "b2b1b37e-d289-429b-8d8e-bbe8c3f17177",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 47,
+        "threadName": "DefaultDispatcher-worker-22 @coroutine#31",
+        "timestamp": 1792013568967,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_19\",\"category\":{\"id\":56,\"name\":\"Dogs\"},\"photoUrls\":[\"https://example.com/pet53.jpg\"],\"tags\":[{\"id\":7,\"name\":\"playful\"},{\"id\":86,\"name\":\"adult\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "830efd97-376d-40e9-9823-bf6bd28addf1",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 53,
+        "threadName": "DefaultDispatcher-worker-15 @coroutine#26",
+        "timestamp": 1792013568967,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_14\",\"category\":{\"id\":59,\"name\":\"Hamsters\"},\"photoUrls\":[\"https://example.com/pet86.jpg\"],\"tags\":[{\"id\":16,\"name\":\"playful\"},{\"id\":11,\"name\":\"vaccinated\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "64a0fd67-d00c-4da5-95af-e5de43f231d3",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 71,
+        "threadName": "DefaultDispatcher-worker-11 @coroutine#18",
+        "timestamp": 1792013568969,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_6\",\"category\":{\"id\":64,\"name\":\"Cats\"},\"photoUrls\":[\"https://example.com/pet86.jpg\"],\"tags\":[{\"id\":99,\"name\":\"friendly\"},{\"id\":89,\"name\":\"indoor\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "852deaab-3536-46c0-a88e-06b0f04a203b",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 53,
+        "threadName": "DefaultDispatcher-worker-4 @coroutine#15",
+        "timestamp": 1792013568970,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_3\",\"category\":{\"id\":63,\"name\":\"Hamsters\"},\"photoUrls\":[\"https://example.com/pet21.jpg\"],\"tags\":[{\"id\":82,\"name\":\"active\"},{\"id\":35,\"name\":\"active\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "26576f4f-b747-4093-a895-b3283de6a577",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 51,
+        "threadName": "DefaultDispatcher-worker-23 @coroutine#32",
+        "timestamp": 1792013568970,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_20\",\"category\":{\"id\":22,\"name\":\"Birds\"},\"photoUrls\":[\"https://example.com/pet25.jpg\"],\"tags\":[{\"id\":47,\"name\":\"friendly\"},{\"id\":70,\"name\":\"calm\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "9f02647f-e9d9-461d-b6b6-92615cb2350c",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 50,
+        "threadName": "DefaultDispatcher-worker-21 @coroutine#28",
+        "timestamp": 1792013568979,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_16\",\"category\":{\"id\":3,\"name\":\"Birds\"},\"photoUrls\":[\"https://example.com/pet71.jpg\"],\"tags\":[{\"id\":56,\"name\":\"young\"},{\"id\":95,\"name\":\"calm\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "f5aa6f0d-62c8-449e-b692-1299ad0b43ac",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 61,
+        "threadName": "DefaultDispatcher-worker-19 @coroutine#29",
+        "timestamp": 1792013568985,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_17\",\"category\":{\"id\":50,\"name\":\"Reptiles\"},\"photoUrls\":[\"https://example.com/pet39.jpg\"],\"tags\":[{\"id\":59,\"name\":\"vaccinated\"},{\"id\":93,\"name\":\"young\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "471396cb-aaa5-4f22-a8da-d2d8c5ee7075",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 97,
+        "threadName": "DefaultDispatcher-worker-8 @coroutine#27",
+        "timestamp": 1792013569019,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_15\",\"category\":{\"id\":92,\"name\":\"Birds\"},\"photoUrls\":[\"https://example.com/pet99.jpg\"],\"tags\":[{\"id\":8,\"name\":\"adult\"},{\"id\":21,\"name\":\"playful\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "abce24ab-e9b0-49de-8253-b551b8c1b16f",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 98,
+        "threadName": "DefaultDispatcher-worker-20 @coroutine#30",
+        "timestamp": 1792013569021,
+        "requestBody": "{\"id\":null,\"name\":\"StressTestPet_18\",\"category\":{\"id\":50,\"name\":\"Fish\"},\"photoUrls\":[\"https://example.com/pet96.jpg\"],\"tags\":[{\"id\":52,\"name\":\"friendly\"},{\"id\":52,\"name\":\"indoor\"}],\"status\":\"available\"}"
+    }
+]

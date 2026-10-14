@@ -1,0 +1,7 @@
+Total Requests: 2000
+Unique Threads: 20
+Avg Duration: 254ms
+Min Duration: 10ms
+Max Duration: 500ms
+Status Codes: {200=661, 201=708, 204=631}
+Methods: {POST=1000, GET=1000}

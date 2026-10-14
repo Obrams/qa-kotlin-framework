@@ -1,0 +1,22 @@
+[
+    {
+        "requestId": "25cd492b-4228-472d-9ffe-02aa05cb1c2f",
+        "method": "POST",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 52,
+        "threadName": "ForkJoinPool-1-worker-6",
+        "timestamp": 1792013568812,
+        "requestBody": "{\"id\":null,\"name\":\"Original\",\"category\":{\"id\":60,\"name\":\"Birds\"},\"photoUrls\":[\"https://example.com/pet5.jpg\"],\"tags\":[{\"id\":2,\"name\":\"indoor\"},{\"id\":42,\"name\":\"young\"}],\"status\":\"available\"}"
+    },
+    {
+        "requestId": "e2c1af34-564a-42ee-a91d-1f1fe8a916b5",
+        "method": "PUT",
+        "path": "/pet",
+        "statusCode": 200,
+        "duration": 42,
+        "threadName": "ForkJoinPool-1-worker-6",
+        "timestamp": 1792013568855,
+        "requestBody": "{\"id\":9223372036854775807,\"name\":\"Updated\",\"category\":{\"id\":60,\"name\":\"Birds\"},\"photoUrls\":[\"https://example.com/pet5.jpg\"],\"tags\":[{\"id\":2,\"name\":\"indoor\"},{\"id\":42,\"name\":\"young\"}],\"status\":\"sold\"}"
+    }
+]

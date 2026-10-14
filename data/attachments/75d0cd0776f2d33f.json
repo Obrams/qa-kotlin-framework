@@ -1,0 +1,11 @@
+[
+    {
+        "requestId": "ebf6dfe7-e3b4-498c-a464-c9ced86441a9",
+        "method": "GET",
+        "path": "/pet/findByStatus?status=available",
+        "statusCode": 200,
+        "duration": 219,
+        "threadName": "ForkJoinPool-1-worker-7",
+        "timestamp": 1792013568818
+    }
+]

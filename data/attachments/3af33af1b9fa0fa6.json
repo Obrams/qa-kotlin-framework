@@ -1,0 +1,92 @@
+[
+    {
+        "requestId": "003d0244-26de-4f14-ad93-4cb4b7fe96f3",
+        "method": "GET",
+        "path": "/pet/findByStatus?status=available",
+        "statusCode": 200,
+        "duration": 1651,
+        "threadName": "DefaultDispatcher-worker-3 @coroutine#4",
+        "timestamp": 1792013568658
+    },
+    {
+        "requestId": "7ce6f0e6-2d28-4021-bade-5a4c0356a658",
+        "method": "GET",
+        "path": "/pet/findByStatus?status=available",
+        "statusCode": 200,
+        "duration": 1658,
+        "threadName": "DefaultDispatcher-worker-2 @coroutine#3",
+        "timestamp": 1792013568671
+    },
+    {
+        "requestId": "13dc6d84-b626-4bf1-9eca-e0f28aa93b7f",
+        "method": "GET",
+        "path": "/pet/findByStatus?status=available",
+        "statusCode": 200,
+        "duration": 1664,
+        "threadName": "DefaultDispatcher-worker-4 @coroutine#5",
+        "timestamp": 1792013568677
+    },
+    {
+        "requestId": "860e30c6-9df3-4cef-831c-6bca2ba30148",
+        "method": "GET",
+        "path": "/pet/findByStatus?status=available",
+        "statusCode": 200,
+        "duration": 1666,
+        "threadName": "DefaultDispatcher-worker-9 @coroutine#8",
+        "timestamp": 1792013568680
+    },
+    {
+        "requestId": "488f6fbb-fc2f-4dea-a6fd-327ddb9c149d",
+        "method": "GET",
+        "path": "/pet/findByStatus?status=available",
+        "statusCode": 200,
+        "duration": 1728,
+        "threadName": "DefaultDispatcher-worker-5 @coroutine#9",
+        "timestamp": 1792013568742
+    },
+    {
+        "requestId": "bc50bb73-428e-4ef2-8c58-7454740d4531",
+        "method": "GET",
+        "path": "/pet/findByStatus?status=available",
+        "statusCode": 200,
+        "duration": 1758,
+        "threadName": "DefaultDispatcher-worker-1 @coroutine#2",
+        "timestamp": 1792013568747
+    },
+    {
+        "requestId": "16c1ab83-1b98-4211-ab59-bd9576ffe829",
+        "method": "GET",
+        "path": "/pet/findByStatus?status=available",
+        "statusCode": 200,
+        "duration": 1760,
+        "threadName": "DefaultDispatcher-worker-6 @coroutine#6",
+        "timestamp": 1792013568772
+    },
+    {
+        "requestId": "a8bdd74a-99f8-4280-a627-29f93fe3b324",
+        "method": "GET",
+        "path": "/pet/findByStatus?status=available",
+        "statusCode": 200,
+        "duration": 1807,
+        "threadName": "DefaultDispatcher-worker-11 @coroutine#10",
+        "timestamp": 1792013568821
+    },
+    {
+        "requestId": "345dfae1-30b3-49bf-ad1e-0b6b3e49fd08",
+        "method": "GET",
+        "path": "/pet/findByStatus?status=available",
+        "statusCode": 200,
+        "duration": 1833,
+        "threadName": "DefaultDispatcher-worker-13 @coroutine#11",
+        "timestamp": 1792013568848
+    },
+    {
+        "requestId": "25485b2a-e6eb-4031-bb12-fd0b6681b8ca",
+        "method": "GET",
+        "path": "/pet/findByStatus?status=available",
+        "statusCode": 200,
+        "duration": 1886,
+        "threadName": "DefaultDispatcher-worker-8 @coroutine#7",
+        "timestamp": 1792013568899
+    }
+]
