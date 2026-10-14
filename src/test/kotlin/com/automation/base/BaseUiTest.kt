@@ -79,8 +79,13 @@ abstract class BaseUiTest {
         }
     }
 
-    protected inline fun <T> withScreenshotOnFailure(block: () -> T): T {
-        return try {
+    /**
+     * Runs a UI test body and attaches a screenshot on failure.
+     * Returns Unit on purpose: JUnit 5 silently ignores @Test methods that return a value,
+     * so `fun test() = withScreenshotOnFailure { ... }` must resolve to Unit.
+     */
+    protected inline fun withScreenshotOnFailure(block: () -> Unit) {
+        try {
             block()
         } catch (e: Throwable) {
             takeScreenshot("Failure Screenshot")
