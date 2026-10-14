@@ -9,6 +9,7 @@ class PracticeSuccessPage(page: Page) : BaseScreen(page) {
     override val expectedUrlPattern = "logged-in-successfully"
 
     private val successMessage = css(".post-title", "Success message")
+
     // match by visible text: the site markup changes, the button label does not
     private val logoutButton = text("Log out", exact = true)
     private val contentText = css(".has-text-align-center", "Content text")
