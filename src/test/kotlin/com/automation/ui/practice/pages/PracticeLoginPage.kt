@@ -47,7 +47,8 @@ class PracticeLoginPage(page: Page) : BaseScreen(page) {
         enterUsername(username)
         enterPassword(password)
         clickSubmit()
-        return PracticeSuccessPage(page)
+        // wait for the redirect so callers get a page that is actually loaded
+        return PracticeSuccessPage(page).apply { verifyUrl() }
     }
 
     @Step("Login expecting error")
