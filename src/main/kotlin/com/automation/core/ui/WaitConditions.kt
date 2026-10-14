@@ -4,7 +4,9 @@ import com.microsoft.playwright.Locator
 import com.microsoft.playwright.Page
 import com.microsoft.playwright.options.LoadState
 import com.microsoft.playwright.options.WaitForSelectorState
+import com.microsoft.playwright.options.WaitUntilState
 import mu.KotlinLogging
+import java.util.function.Predicate
 
 private val logger = KotlinLogging.logger {}
 
@@ -94,7 +96,14 @@ object WaitConditions {
         timeoutMs: Double = DEFAULT_TIMEOUT_MS,
     ) {
         logger.trace { "Waiting for URL to contain: $substring" }
-        page.waitForURL("**/*$substring*", Page.WaitForURLOptions().setTimeout(timeoutMs))
+        // A glob like "**/*foo*" never matches URLs with a trailing slash ("*" does not cross "/"),
+        // so match on the plain string. DOMCONTENTLOADED: do not block on ads/analytics finishing to load.
+        page.waitForURL(
+            Predicate<String> { it.contains(substring) },
+            Page.WaitForURLOptions()
+                .setTimeout(timeoutMs)
+                .setWaitUntil(WaitUntilState.DOMCONTENTLOADED),
+        )
     }
 
     fun waitForLoadState(
