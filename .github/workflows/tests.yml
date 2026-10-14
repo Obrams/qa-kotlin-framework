@@ -74,7 +74,6 @@ jobs:
 
       - name: 🧪 Run API Tests
         run: ./gradlew apiTest
-        continue-on-error: true
 
       - name: 📊 Upload Allure Results
         uses: actions/upload-artifact@v4
@@ -128,7 +127,6 @@ jobs:
         run: ./gradlew uiTest
         env:
           BROWSER: ${{ matrix.browser }}
-        continue-on-error: true
 
       - name: 📊 Upload Allure Results
         uses: actions/upload-artifact@v4
@@ -180,7 +178,6 @@ jobs:
           fi
         env:
           BROWSER: ${{ github.event.inputs.browser }}
-        continue-on-error: true
 
       - name: 📊 Upload Allure Results
         uses: actions/upload-artifact@v4
