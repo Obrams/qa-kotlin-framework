@@ -22,7 +22,7 @@ Example targets used by the sample tests: [Swagger Petstore](https://petstore.sw
 | Area | What is in the box |
 |------|--------------------|
 | **API** | `ApiClient` on Spring WebClient; typed `get<T>` / `post<Req, Res>`; `ApiResponse` sealed class (`Success` / `HttpError` / `Error`), so a test never catches exceptions to branch on status |
-| **UI** | Playwright Page Objects on top of `BaseScreen` + `ScreenElement`; `BrowserManager` shares one Playwright browser and hands out an isolated `BrowserContext` per test; explicit `WaitConditions` instead of sleeps |
+| **UI** | Playwright Page Objects on top of `BaseScreen` + `ScreenElement`; every test gets its own Playwright instance and browser (Playwright for Java is not thread-safe); explicit `WaitConditions` instead of sleeps |
 | **Parallelism** | JUnit 5 `concurrent` mode for classes and methods; `TestContext` (ThreadLocal) keeps per-test data, request IDs and metadata isolated; `ThreadSafeReportCollector` aggregates results across threads |
 | **Data** | `TestDataFactory` for unique, collision-free entities; serializable DTOs |
 | **Reporting** | Allure with steps/attachments via `AllureExtensions`; history is carried between CI runs and published to GitHub Pages |
@@ -97,7 +97,7 @@ TestContext.cleanup()                               // @AfterEach
 - **ThreadLocal context instead of static fields.** `TestContext` holds the test name, generated IDs, request IDs and metadata for the current thread only. A test can run 50-wide without leaking data into a neighbour.
 - **Sealed `ApiResponse` instead of exceptions.** Non-2xx is a value, not a throw. Tests pattern-match on it, which keeps negative cases as readable as positive ones.
 - **Spring WebClient rather than a test-only HTTP library.** Same client that the services under test typically use, so reactive timeouts, codecs and connection pooling behave the way they do in production.
-- **One browser, many contexts.** `BrowserManager` launches a single Playwright browser (double-checked locking) and gives every test its own `BrowserContext` — cookies, storage and viewport are isolated, while browser start-up cost is paid once.
+- **One Playwright per test.** Playwright for Java is not thread-safe, so `BaseUiTest` creates a Playwright instance, browser and context for every test and closes them afterwards. It costs about a second of start-up per test and buys UI tests that run in parallel with nothing shared between threads.
 - **Tags over directories for selection.** `@Tag("api")` / `@Tag("ui")` plus dedicated Gradle tasks (`apiTest`, `uiTest`) let CI run the two groups on separate runners without touching the source layout.
 - **Allure history survives CI runs.** The report job checks out the previous `gh-pages` content and merges `history/` before generating, so trends and flakiness are visible across builds, not just inside one.
 - **ktlint as a hard gate.** Lint runs first and every test job depends on it; style drift never reaches `main`.
